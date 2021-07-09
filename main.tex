@@ -1,6 +1,6 @@
 
 %preamble
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 12pt]{report}
 %Paragraph jumps and indentation
 \setlength{\parskip}{1.6em}
 \setlength{\parindent}{1.25cm}
@@ -11,10 +11,25 @@
 \doublespacing
 %Packages
 \usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{amssymb}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{titlesec}
+\usepackage{nomencl}
+\makenomenclature
+    %% This code creates the groups
+    % -----------------------------------------
+    \usepackage{etoolbox}
+    \renewcommand\nomgroup[1]{%
+      \item[\bfseries
+      \ifstrequal{#1}{P}{Physics constants}{%
+      \ifstrequal{#1}{N}{Number sets}{%
+      \ifstrequal{#1}{O}{Other symbols}{}}}%
+    ]}
+    % -----------------------------------------
 \usepackage{biblatex}
 \addbibresource{bibliography.bib}
 %Images
@@ -35,13 +50,43 @@
 \usepackage{hyperref}
 \urlstyle{same}
 
+%theorems, lemmas, proofs
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\newcommand{\researchquestion}{\begin{quote}
+        \emph{RQ: Why does the radius of an IK-Sphere tend to infinity as dimensionality increases? }
+\end{quote}}
+
+
+
 \begin{document}
-
-\include{titlepage}
-\include{abstract}
-\include{contents}
-\include{intro}
-
-\printbibliography
-
+    \include{titlepage}
+    \include{dedication}
+    \include{abstract}
+    \singlespacing
+    \include{contents}
+    \doublespacing
+    \include{nomenclature}
+    
+    \chapter{Introduction}
+    \input{chapters/intro}
+    
+    \chapter{The Radius of the IK-Sphere as Dimension Tends to Infinity}
+    \input{chapters/chapter_2}
+    
+    \chapter{Implications of the Higher Dimensional Unit Sphere on the IK-Sphere}
+    \input{chapters/chapter_3}
+    
+    \chapter{Conclusion}
+    \input{chapters/conclusion}
+    
+    \printbibliography
+    %\printbibliography[type=inbook, title={Books}]
+    
+    \appendix
+    \chapter{Appendix}
+    \input{chapters/appendix}
 \end{document}

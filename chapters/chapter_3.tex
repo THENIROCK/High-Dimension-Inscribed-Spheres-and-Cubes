@@ -1,9 +1,53 @@
-A geometric reasoning can aid in developing a better intuition for higher dimensional phenomena. This chapter aims to reason for why the IK-Sphere radius diverges in terms of space consumption of the IK-Sphere and the unit $n$-spheres it `kisses'.
+Geometric reasoning can aid in developing a better intuition for higher dimensional phenomena. This chapter aims to reason for why the IK-Sphere radius diverges in terms of space consumption of the IK-Sphere and the unit $n$-spheres it `kisses'.
 
 \begin{definition}[Volume]
     Here, volume has been generalised across $n$ dimensions as the number of unit $n$-cubes of space a shape occupies. For example, `area' is volume in two-dimensional space, as is `volume' in three-dimensional space. 
 \end{definition}
 
 \section{The Volume of the $n$-Sphere}
+The volume of an $n$-sphere is given as \cite{mcdonald2003volume}:
+\begin{equation}\label{eq:vol of sphere}
+    V_n(r)=\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}r^n
+\end{equation}
+
+\subsection{Spherical Coordinates}
 
 \section{Implications of the Higher Dimensional Unit Sphere on the IK-Sphere}
+\begin{lemma}
+    As dimensionality increases a unit sphere's volume converges to zero.
+\end{lemma}
+\begin{proof}
+    First, notice that $r_n$ will always equal 1 because it is a unit sphere and that $r^n=1^n$ which always equals 1 for all $n \in \mathbb{N}$. Thus, we can simplify the expression (Equation \ref{eq:vol of sphere}) on the right hand side to
+    \begin{equation*}
+        V_n=\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}.
+    \end{equation*}
+    Next, the limit of the right hand side can be taken as $n$ approaches infinity:
+    \begin{equation*}
+        \lim_{n\to\infty}\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}.
+    \end{equation*}
+    To evaluate this limit we can use the squeeze theorem. We have
+    \begin{align*}
+        \frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!} = \left(\pi^{\frac{n}{2}}\right)\left(\frac{1}{\left(\frac{n}{2}\right)!}\right)\\
+        0\leq\frac{1}{\left(\frac{n}{2}\right)!}
+    \end{align*}
+\end{proof}
+
+Because the radius of the IK-Sphere expands to `kiss' the unit spheres centered on the vertices of the bounding $n$-cube, if the volume of the unit $n$-spheres converges to zero as dimensionality increases, that would explain why the radius reaches out to infinity to `kiss' them -- it never can. If that is the case, we would expect the volume of the IK-Sphere to diverge alongside its radius as it expands to touch the unit $n$-spheres surrounding it.
+
+\begin{theorem}
+As the number of dimensions $n$ increases, the volume of an IK-Sphere will expand to match the decreasing volume of its surrounding unit $n$-spheres. 
+\end{theorem}
+
+\begin{proof}
+    We are required to evaluate the limit as $r_n$ and $n$ approach infinity of the volume of the IK-Sphere. Expressed in limit form, this is
+    \begin{align*}
+        \lim_{(r,n)\to\infty}V_n(r)=\lim_{(r,n)\to\infty}\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}r^n
+    \end{align*}
+    In this case, $r_n$ is dependent on $n$ and can be written as $r_n=\sqrt{n}-1$ (see Equation \ref{radius of ik sphere}) as we derived in Chapter 1. Therefore, the limit of two variables can be converted to one in one variable and easier to solve. Substituting $r_n=\sqrt{n}-1$, the right hand side can be rewritten as
+    \begin{align*}
+        \lim_{n\to\infty}\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}{\left(\sqrt{n}-1\right)}^n
+    \end{align*}
+    
+    
+    
+\end{proof}

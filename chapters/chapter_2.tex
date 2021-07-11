@@ -120,7 +120,7 @@ Graphically (see Figure \ref{fig:radius increases graph}), we may observe the sa
         %Here the blue parabola is defined
         \end{axis}
     \end{tikzpicture}
-    \caption{Caption}
+    \caption{Radius increases without bound as dimensionality increases.}
     \label{fig:radius increases graph}
 \end{figure}
 %Here ends the 2D plot
@@ -133,11 +133,24 @@ Graphically (see Figure \ref{fig:radius increases graph}), we may observe the sa
 \section{Verification of the IK-Sphere at Nine Dimensions}
 The radius of an IK-Sphere has now been proven to increase without bound. As such, one may infer that the IK-Sphere bursts outside of its bounding box as dimensionality increases, implying that there exist intersection points between the IK-Sphere and its `bounding' $n$-cube at higher dimensions. In fact, upon inspection, one may observe that at $n=4$ dimensions, $$r_4=\sqrt{4}-1=1.$$ The IK-Sphere fits perfectly within its bounding 4-cube with side length 2 units (!). Here, intuition takes hold once again. One may assume there exists a solvable intersection point on a single face of the 4-cube with the IK-Sphere. However, another possibility arises in which higher dimensional intersections may operate differently and the IK-Sphere may still exist within its bounding $n$-cube as we originally assumed. We can verify the existence, or lack thereof, of an intersection point to decide which of these possibilities is true in higher dimensions.
 
-From the definition of an $n$-sphere (see Definition \ref{def:n-sphere}) the following equation can be constructed:
+To solve for the intersection point, we would need two equations in 4 coordinates $(x, y, z, w)$: one for the 4-cube and one for the 4-sphere. From the definition of an $n$-sphere (see Definition \ref{def:n-sphere}) the following equation can be constructed:
+\begin{lemma}
+In four-dimensional space with coordinates $(x, y, z, w)$, a unit 4-sphere can be defined as
 \begin{equation}\label{eq:unit 4-sphere}
-    x_1^2+y_2^2+z_3^2+w_4^2=1
+    x_1^2+y_2^2+z_3^2+w_4^2=1.
 \end{equation}
 where $(x, y, z, w)$ is a point on the 4-sphere.
+\end{lemma}
+\begin{proof}
+    This is a simple proof using vectors. Consider the vector $\Vec{\mathbf{r}}$ originating from the center of the 4-sphere. For the span of this vector to be a unit 4-sphere, the magnitude of $\Vec{\mathbf{r}}$ must equal 1. In notation, this is $$\lVert\Vec{\mathbf{r}}\rVert = 1.$$
+    Expanding $\lVert\Vec{\mathbf{r}}\rVert$, we can obtain the required result by squaring both sides:
+    \begin{align*}
+        \sqrt{x_1^2+y_2^2+z_3^2+w_4^2}&=1\\
+        \therefore x_1^2+y_2^2+z_3^2+w_4^2&=1
+    \end{align*}
+\end{proof}
+
+However, an explicit equation for the entire 4-cube is not readily available. As such, we will use a single face of the 4-cube, or rather, a plane in 4-dimensions with restrictions $0\leq x, y, z, w \leq 2$.
 
 However, this does not help our high dimensional intuition. As such, geometric reasoning is required.
 

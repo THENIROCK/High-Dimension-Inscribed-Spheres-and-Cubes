@@ -13,8 +13,10 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{graphicx}
+\usepackage{pgfplots}
 \usepackage{amssymb}
-\usepackage[dvipsnames]{xcolor}
+\usepackage{epigraph}
+%\usepackage[dvipsnames]{xcolor}
 \usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{titlesec}
@@ -62,7 +64,9 @@
         \emph{RQ: Why does the radius of an IK-Sphere tend to infinity as dimensionality increases? }
 \end{quote}}
 
-
+% We will externalize the figures
+\usepgfplotslibrary{external}
+\tikzexternalize
 
 \begin{document}
     \include{titlepage}
@@ -76,10 +80,13 @@
     \chapter{Introduction}
     \input{chapters/chapter_1}
     
-    \chapter{The Radius of the IK-Sphere as Dimension Tends to Infinity}
+    \chapter{Algebraic Reasoning}
+    %\epigraph{Research Question}{\begin{flushleft}\textit{Why does the radius of an IK-Sphere tend to infinity as dimensionality increases?}\end{flushleft}}
+    \epigraph{\textit{Why does the radius of an IK-Sphere tend to infinity as dimensionality increases?}}{Research Question}
     \input{chapters/chapter_2}
     
     \chapter{Implications of the Higher Dimensional Unit Sphere on the IK-Sphere}
+    \epigraph{Why does the radius of an IK-Sphere tend to infinity as dimensionality increases?}{\textit{Research Question}}
     \input{chapters/chapter_3}
     
     \chapter{Conclusion}

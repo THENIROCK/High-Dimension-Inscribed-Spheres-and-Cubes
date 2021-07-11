@@ -2,7 +2,7 @@
 
 \section{The Radius of the IK-Sphere as Dimension Tends to Infinity}
 The radius $r$ of the IK-Sphere can be solved for algebraically and generalised by extending the Pythagorean Theorem.
-\begin{lemma}[Extended Pythagorean Theorem for $n$-cube]
+\begin{lemma}[Extended Pythagorean Theorem for $n$-cube]\label{lemma:extend pythag}
     For an $n$-cube in $n$-dimensions, with a set of lines of length $a_1, a_2, a_3, ... , a_n$, each perpendicular to all others and originating from the same vertex, the length of the diagonal $c$ of the $n$-cube is given by
     \begin{equation}\label{extendedpythag}
         c^2 = \sum_{i}^{n}a_i^2
@@ -96,8 +96,12 @@ Take the limit as $n$ approaches infinity of the expression for $r_n$ in terms o
     &=\infty - 1\\
     &=\infty
 \end{align*}
+$\therefore$ the radius of an IK-Sphere diverges to infinity as dimension $n$ increases.\\
+\end{proof}
+
+Graphically (see Figure \ref{fig:radius increases graph}), we may observe the same result with less rigour. The domain has been restricted to $n\geq3$ as $n=3$ was the base case for the Extended Pythagorean Theorem for an $n$-Cube (see Lemma \ref{lemma:extend pythag}). Below $n=1$ we obtain negative values for $r_n$ which can accordingly be considered undefined region. Investigation into fractional dimensions could reveal a reason, however, that is currently beyond the scope of this essay.
 %Here begins the 2D plot
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{tikzpicture}
         \begin{axis}[
@@ -107,7 +111,7 @@ Take the limit as $n$ approaches infinity of the expression for $r_n$ in terms o
         ]
         %Below the red parabola is defined
         \addplot [
-            domain=-10:10, 
+            domain=3:100, 
             samples=100, 
             color=red,
         ]
@@ -119,15 +123,21 @@ Take the limit as $n$ approaches infinity of the expression for $r_n$ in terms o
     \caption{Caption}
     \label{fig:radius increases graph}
 \end{figure}
-    
-
 %Here ends the 2D plot
-$\therefore$ the radius of an IK-Sphere diverges to infinity as dimension $n$ increases.
-\end{proof}
+
+
 
 
 
 
 \section{Verification of the IK-Sphere at Nine Dimensions}
+The radius of an IK-Sphere has now been proven to increase without bound. As such, one may infer that the IK-Sphere bursts outside of its bounding box as dimensionality increases, implying that there exist intersection points between the IK-Sphere and its `bounding' $n$-cube at higher dimensions. In fact, upon inspection, one may observe that at $n=4$ dimensions, $$r_4=\sqrt{4}-1=1.$$ The IK-Sphere fits perfectly within its bounding 4-cube with side length 2 units (!). Here, intuition takes hold once again. One may assume there exists a solvable intersection point on a single face of the 4-cube with the IK-Sphere. However, another possibility arises in which higher dimensional intersections may operate differently and the IK-Sphere may still exist within its bounding $n$-cube as we originally assumed. We can verify the existence, or lack thereof, of an intersection point to decide which of these possibilities is true in higher dimensions.
+
+From the definition of an $n$-sphere (see Definition \ref{def:n-sphere}) the following equation can be constructed:
+\begin{equation}\label{eq:unit 4-sphere}
+    x_1^2+y_2^2+z_3^2+w_4^2=1
+\end{equation}
+where $(x, y, z, w)$ is a point on the 4-sphere.
+
 However, this does not help our high dimensional intuition. As such, geometric reasoning is required.
 

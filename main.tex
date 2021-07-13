@@ -11,6 +11,7 @@
 \doublespacing
 %Packages
 \usepackage{amsmath}
+\usepackage{systeme}
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{pgfplots}
@@ -28,7 +29,7 @@
     \usepackage{etoolbox}
     \renewcommand\nomgroup[1]{%
       \item[\bfseries
-      \ifstrequal{#1}{P}{Physics constants}{%
+      \ifstrequal{#1}{L}{Linear Algebra}{%
       \ifstrequal{#1}{N}{Number sets}{%
       \ifstrequal{#1}{O}{Other symbols}{}}}%
     ]}
@@ -37,7 +38,7 @@
 \addbibresource{bibliography.bib}
 %Images
 \usepackage{graphicx}
-\graphicspath{ {./images/} }
+\graphicspath{ {./imagces/} }
 \usepackage{wrapfig}
 \usepackage{float}
 %Tables
@@ -64,6 +65,12 @@
 \newcommand{\researchquestion}{\begin{quote}\begin{center}
         \emph{RQ: Why does the radius of an IK-Sphere tend to infinity as dimensionality increases? }\end{center}
 \end{quote}}
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
 
 % We will externalize the figures
 \usepgfplotslibrary{external}

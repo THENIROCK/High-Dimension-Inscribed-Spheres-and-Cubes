@@ -2,7 +2,9 @@
 In conclusion, to answer the research question:
 \researchquestion{}
 
-The algebraic reason would be that ...
+The algebraic reason would be that the limit of the expression for the radius of an IK-Sphere in terms of dimension $n$ as $n$ approaches infinity tends to infinity.
 
-However, such abstraction is not so much useful in making educated guesses as a geometric reason. 
-\section{Further Investigation} 
+However, such abstraction is not very useful in understanding higher dimensions. As an aid to one's higher dimensional intuition, the geometric reason is that as the dimension increases, the space, determined by the volume of the unit $n$-spheres the IK-Sphere `kisses', between unit spheres becomes infinitely large because their volume approaches zero. As a result, the radius of the IK-Sphere expands to fill the space and its volume also tends to infinity in an attempt to `kiss' its bounding unit spheres. 
+
+\section{Implications and Further Investigation} 
+The conclusion has implications relating to what is known as the curse of dimensionality for high dimensional data sets in machine learning -- as you increase dimensions, we found that the amount of space between points increases. As a result, when data has too many variables, the machine learning algorithm has trouble pinpointing attributes and patterns because the data is so vastly spread out. Additionally, the conclusion has implications for error correcting codes. For example, when a CD or DVD has a scratch on it, changing the encoded data, an error correcting code is used to fill in and `repair' the missing data. If a point in high dimensional space is a piece of data, the space is separated into as many spheres as possible and the data read from the disk is corrected to the coordinate of the center of the sphere it exists within. Thus, the closer together we can get the spheres, the more accurate data corrections we can achieve. However, we learnt that the space between spheres can become increasingly larger as dimension increases which means that as dimensions increase, even more spheres can be packed around each other.

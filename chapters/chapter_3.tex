@@ -1,19 +1,24 @@
-Geometric reasoning can aid in developing a better intuition for higher dimensional phenomena. This chapter aims to reason for why the IK-Sphere radius diverges in terms of space consumption of the IK-Sphere and the unit $n$-spheres it `kisses'.
+Geometric reasoning can aid in developing a better visual intuition for higher dimensional phenomena. This chapter aims to reason for why the IK-Sphere radius diverges in terms of space consumption (volume) of the IK-Sphere, the unit $n$-spheres it `kisses', and its bounding $n$-cube on which the $n$-spheres are situated.
 
 \begin{definition}[Volume]
-    Here, volume has been generalised across $n$ dimensions as the number of unit $n$-cubes of space a shape occupies. For example, `area' is volume in two-dimensional space, as is `volume' in three-dimensional space. 
+    Here, volume has been generalised across $n$ dimensions as the number of unit $n$-cubes of space a shape occupies. For example, `length' is volume in one-dimensional space, `area' is volume in two-dimensional space, as is `volume' in three-dimensional space. 
 \end{definition}
 
-\section{The Volume of the $n$-Sphere}
+\section{The Volume of the n-Sphere}
 The volume of an $n$-sphere is given as \cite{formula_n_sphere}:
 \begin{equation}\label{eq:vol of sphere}
     V_n(r)=\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}r^n
 \end{equation}
 
 \subsection{Spherical Coordinates}
+The use of spherical coordinates can greatly simplify the derivation of the formula for the volume of an $n$-sphere. Consider ... using cartesian coordinates is very difficult, However, with spherical coordinates, one can ...
+
+\subsection{Derivation of the Formula for an $n$-Sphere's Volume}
 
 \section{Implications of the Higher Dimensional Unit Sphere on the IK-Sphere}
-\begin{lemma}
+First, we must determine how the space consumption of the unit $n$-sphere changes as dimensionality $n$ increases. The reasoning here uses the result that as $n \to \infty$, a unit $n$-sphere's volume will tend to zero \cite{athreya2008unit}, resulting in the volume (and hence, the radius) of the IK-Sphere, which expands to fill the space between the surrounding unit $n$-spheres, expanding to infinity. 
+
+\begin{lemma}\label{lemma:unit sphere volume tends to zero}
     As dimensionality increases a unit sphere's volume converges to zero.
 \end{lemma}
 \begin{proof}
@@ -25,29 +30,155 @@ The volume of an $n$-sphere is given as \cite{formula_n_sphere}:
     \begin{equation*}
         \lim_{n\to\infty}\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}.
     \end{equation*}
-    To evaluate this limit we can use the squeeze theorem. We have
+    To evaluate this limit we can use the squeeze theorem whereby if the factors of an expression tend to a limit, then that expression itself must also tend to the same limit. Letting $m=\frac{n}{2}$ allows for a simpler expansion of the expression as a series to
     \begin{align*}
-        \frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!} = \left(\pi^{\frac{n}{2}}\right)\left(\frac{1}{\left(\frac{n}{2}\right)!}\right)\\
-        0\leq\frac{1}{\left(\frac{n}{2}\right)!}
+        \frac{\pi ^ m}{m!} &= \left( \frac{\pi}{m} \times \frac{\pi}{m-1} \times ... \times \frac{\pi}{1}\right)\\
+        &= \left( \frac{\pi}{1} \times ... \times \frac{\pi}{m-1} \times \frac{\pi}{m} \right).
     \end{align*}
+    As can be seen with $\pi$ as a constant on the numerator, the fractions are being multiplied by increasingly smaller fractions in the series ($... \times \frac{\pi}{m-2} \times \frac{\pi}{m-1} \times \frac{\pi}{m}$). As a result, as $m$ increases, this series will approach 0. This implies that as $\frac{n}{2}$ increases (because $m=\frac{n}{2}$), i.e. as $n$ increases,
+    \begin{align*}
+         \lim_{n\to\infty}\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}=0
+    \end{align*}
+    as required.
 \end{proof}
 
-Because the radius of the IK-Sphere expands to `kiss' the unit spheres centered on the vertices of the bounding $n$-cube, if the volume of the unit $n$-spheres converges to zero as dimensionality increases, that would explain why the radius reaches out to infinity to `kiss' them -- it never can. If that is the case, we would expect the volume of the IK-Sphere to diverge alongside its radius as it expands to touch the unit $n$-spheres surrounding it.
+\begin{figure}[H]
+    \centering
+    % \begin{tikzpicture}
+    %     \begin{axis}[
+    %         axis lines = left,
+    %         xlabel = \(n\),
+    %         ylabel = {\(V_n\)},
+    %     ]
+    %     %Below the red parabola is defined
+    %     \addplot [
+    %         domain=0:20, 
+    %         samples=100, 
+    %         color=red,
+    %     ]
+    %     {(pi^(x/2))/(Gamma(x/2))};
+    %     \addlegendentry{\(\sqrt{n}-1\)}
+    %     %Here the blue parabola is defined
+    %     \end{axis}
+    % \end{tikzpicture}
+    \begin{tikzpicture}[]
+        \begin{axis}[
+        xmin = 0, xmax = 20, 
+        %ymin = -3.5, ymax = 3.5,  
+        restrict y to domain=0:20,
+        axis lines = left,
+        axis line style={-latex},  
+        xlabel={$n$}, 
+        ylabel={$V_n$},
+        %enlarge x limits={upper={val=0.2}},
+        enlarge y limits=0.05,
+        % x label style={at={(ticklabel* cs:1.00)}, inner sep=5pt, anchor=north},
+        % y label style={at={(ticklabel* cs:1.00)}, inner sep=2pt, anchor=south east},
+        ]
+        
+        \addplot[color=red, samples=222, smooth, 
+        domain = 0:20] gnuplot{pi^(x/2)/gamma((x/2)+1)};
+        \foreach[evaluate={\N=\n-1}] \n in {0,...,20}{%
+            \addplot [domain=0:6, samples=2, densely dashed, thin] (\N, x);
+        }%
+        
+        \addlegendentry[align=left]{\\$V_n=\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}$\\}
+        % \foreach[evaluate={\N=\n-1}] \n in {0,...,-5}{%
+        % \addplot[color=red, samples=555, smooth,  
+        % domain = \n:\N] gnuplot{gamma(x)};
+        % %
+        % \addplot [domain=0:6, samples=2, densely dashed, thin] (\N, x);
+        % }%
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Volume of unit $n$-sphere tends to zero as dimension $n$ decreases.}
+    \label{fig:unit sphere volume graph}
+\end{figure}
 
-\begin{theorem}
+Graphically, the limit of $V_n$ as $n \to 0$ can be observed (see Figure \ref{fig:unit sphere volume graph}). Due to the radius of the IK-Sphere expanding to `kiss' the unit spheres centered on the vertices of the bounding $n$-cube, if the volume of the unit $n$-spheres converges to zero as dimensionality increases, that would explain why the radius reaches out to infinity to `kiss' them -- it never can. If that is the case, we would expect the volume of the IK-Sphere to diverge alongside its radius as it expands to touch the unit $n$-spheres surrounding it. However, it may also be noticed that until $n=5$, the volume of the unit $n$-sphere increases. This would imply that the volume of the IK-Sphere should decrease for $n\leq 5$. However, ultimately, the volume should tend to infinity.
+
+\begin{theorem}\label{theorem:volume of IK-Sphere}
 As the number of dimensions $n$ increases, the volume of an IK-Sphere will expand to match the decreasing volume of its surrounding unit $n$-spheres. 
 \end{theorem}
 
 \begin{proof}
     We are required to evaluate the limit as $r_n$ and $n$ approach infinity of the volume of the IK-Sphere. Expressed in limit form, this is
     \begin{align*}
-        \lim_{(r,n)\to\infty}V_n(r)=\lim_{(r,n)\to\infty}\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}r^n
+        \lim_{(r,n)\to\infty}V_n(r)&=\lim_{(r,n)\to\infty}\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}r^n
     \end{align*}
-    In this case, $r_n$ is dependent on $n$ and can be written as $r_n=\sqrt{n}-1$ (see Equation \ref{radius of ik sphere}) as we derived in Chapter 1. Therefore, the limit of two variables can be converted to one in one variable and becomes easier to solve. Substituting $r_n=\sqrt{n}-1$, the right hand side can be rewritten as
+    In this case, $r_n$ is dependent on $n$ and can be written as $r_n=\sqrt{n}-1$ (see Equation \ref{radius of ik sphere}) as we derived in Chapter 1. Therefore, the limit of two variables can be converted to a limit in one variable and becomes easier to solve. Substituting $r_n=\sqrt{n}-1$, the right hand side can be rewritten as
     \begin{align*}
-        \lim_{n\to\infty}\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}{\left(\sqrt{n}-1\right)}^n
+        \lim_{n\to\infty}\frac{\pi^{\frac{n}{2}}{\left(\sqrt{n}-1\right)}^n}{\left(\frac{n}{2}\right)!}.
     \end{align*}
+    For an arbitrary function $f(x)$, if $$\left(\lim_{x \to \infty} f(x)\right)^{-1}=\lim_{x \to \infty} f(x)^{-1}$$ is true, then by proving that $(V_n(r))^{-1} \to 0$ as $n \to \infty$, we can prove the inverse: $V_n(r) \to \infty$ as $n \to \infty$.
     
-    
-    
+    \noindent
+    We will now find the limit as $n \to \infty$ of $(V_n(r))^{-1}$ 
+    \begin{align*}
+        \lim_{n\to\infty}(V_n(r))^{-1}=\lim_{n\to\infty}\frac{\left(\frac{n}{2}\right)!}{\pi^{\frac{n}{2}}{\left(\sqrt{n}-1\right)}^n}.
+    \end{align*}
+    \noindent
+    Let $m=\frac{n}{2}$ and expand $V_n(r)$ as a series
+    \begin{align*}
+        \frac{\pi^m{\left(\sqrt{2m}-1\right)}^{2m}}{m!}=\frac{m}{\pi(\sqrt{2m}-1)^2} \times \frac{m-1}{\pi(\sqrt{2m}-1)^2} \times ... \times \frac{1}{\pi(\sqrt{2m}-1)^2}
+    \end{align*}
 \end{proof}
+
+\begin{figure}[H]
+    \centering
+    % \begin{tikzpicture}
+    %     \begin{axis}[
+    %         axis lines = left,
+    %         xlabel = \(n\),
+    %         ylabel = {\(V_n\)},
+    %     ]
+    %     %Below the red parabola is defined
+    %     \addplot [
+    %         domain=0:20, 
+    %         samples=100, 
+    %         color=red,
+    %     ]
+    %     {(pi^(x/2))/(Gamma(x/2))};
+    %     \addlegendentry{\(\sqrt{n}-1\)}
+    %     %Here the blue parabola is defined
+    %     \end{axis}
+    % \end{tikzpicture}
+    \begin{tikzpicture}[]
+        \begin{axis}[
+        xmin = 0, xmax = 20, 
+        %ymin = -3.5, ymax = 3.5,  
+        restrict y to domain=0:20,
+        axis lines = left,
+        axis line style={-latex},  
+        xlabel={$n$}, 
+        ylabel={$V_n$},
+        %enlarge x limits={upper={val=0.2}},
+        enlarge y limits=0.05,
+        % x label style={at={(ticklabel* cs:1.00)}, inner sep=5pt, anchor=north},
+        % y label style={at={(ticklabel* cs:1.00)}, inner sep=2pt, anchor=south east},
+        ]
+        
+        \addplot[color=red, samples=222, smooth, 
+        domain = 0:20] gnuplot{pi^(x/2)/gamma((x/2)+1)};
+        \foreach[evaluate={\N=\n-1}] \n in {0,...,20}{%
+            \addplot [domain=0:6, samples=2, densely dashed, thin] (\N, x);
+        }%
+        
+        \addlegendentry[align=left]{\\$V_n=\frac{\pi^{\frac{n}{2}}}{\left(\frac{n}{2}\right)!}$\\}
+        % \foreach[evaluate={\N=\n-1}] \n in {0,...,-5}{%
+        % \addplot[color=red, samples=555, smooth,  
+        % domain = \n:\N] gnuplot{gamma(x)};
+        % %
+        % \addplot [domain=0:6, samples=2, densely dashed, thin] (\N, x);
+        % }%
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Volume of IK-sphere tends to infinity as dimension $n$ decreases.}
+    \label{fig:IK sphere volume to infinity graph}
+\end{figure}
+
+Graphically, there is no decrease in volume for $n \leq 5$ as was expected. Hence, there must be another factor contributing to the constant increase in volume. It may be noticed, however, that the volume increase after $n=5$ becomes much steeper. This implies that there is some effect from the surrounding unit sphere volumes increasing before $n=5$. We may now realise that the IK-Sphere volume also depends on the volume of its bounding $n$-cube on whose vertices the unit spheres are situated on. 
+
+The volume of an $n$-cube with side length 2 units is given by $V_n = 2^n$.
+
+We may graph the volumes of the IK-Sphere, unit $n$-sphere and bounding $n$-cube to reason how the IK-Sphere expands to fill the space between its surrounding $n$-spheres.

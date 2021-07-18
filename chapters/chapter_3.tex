@@ -22,7 +22,7 @@ As the derivation requires spherical coordinates and multi-variable calculus, it
     \begin{align*}
         V_2(r)&=\frac{\pi^{\frac{3}{2}}}{\left(\frac{3}{2}\right)!}r^3\\
     \end{align*}
-    We may use the gamma function (extended factorial function for fractional and negative real values) $\Gamma(x+1)=x!$ to calculate $\left(\frac{3}{2}\right)!$.
+    We may use the gamma function (extended factorial function for fractional and negative real values) where $\Gamma(x+1)=x!$ as documented by \cite{gronau2003gamma} to calculate $\left(\frac{3}{2}\right)!$.
     \begin{align*}
         \Gamma\left(\frac{3}{2}+1\right)&=\frac{3}{4}\sqrt{\pi}.\\
         \therefore V_2(r)&=\frac{\sqrt{\pi}^3}{\frac{3}{4}\sqrt{\pi}}r^3\\
@@ -148,21 +148,23 @@ As the number of dimensions $n \to \infty$, the volume of an IK-Sphere will tend
         \begin{subproof}[Subproof]
             Notice that 
             \begin{align*}
-                \pi\left(\sqrt{2m}-1\right)^m > \pi\left(\sqrt{2m}\right)^{m-1}
+                \pi\left(\sqrt{2m}-1\right)^m > \sqrt{2m}-1
             \end{align*}
-            for all $m>0, m \in \mathbb{N}$. 
-            This implies that 
-            \begin{align*}
-                &\pi(\sqrt{2m}-1)^m > \frac{\pi(\sqrt{2m}-1)^{m-1}}{\pi(\sqrt{2m}-1)^{m-2}}\\
-                \implies &\pi(\sqrt{2m}-1)^m > m.
-            \end{align*}
-            Thus, if $\pi(\sqrt{2m}-1)^m > m$, then $\pi(\sqrt{2m}-1)^m$ is constantly increasing because no matter how large $m$ is (i.e. $m\to\infty$), $\pi(\sqrt{2m}-1)^m$ will always be larger. So, when $m\to\infty$, $\pi(\sqrt{2m}-1)^m > m \implies \lim_{m\to\infty}\pi(\sqrt{2m}-1)^m=\infty$.
+            for all $m>0, m \in \mathbb{N}$.\\ 
+            % This implies that 
+            % \begin{align*}
+            %     &\pi(\sqrt{2m}-1)^m > \frac{\pi(\sqrt{2m}-1)^{m-1}}{\pi(\sqrt{2m}-1)^{m-2}}\\
+            %     \implies &\pi(\sqrt{2m}-1)^m > m.
+            % \end{align*}
+            We can see that $\lim_{m\to\infty}\sqrt{2m}-1=\infty$, thus implying that no matter how large $\sqrt{2m}-1$ is (i.e. $m\to\infty$), $\pi(\sqrt{2m}-1)^m$ will always be larger. So, when $m\to\infty$, $\pi(\sqrt{2m}-1)^m > \sqrt{2m}-1 \implies \lim_{m\to\infty}\pi(\sqrt{2m}-1)^m=\infty$.
         \end{subproof}
     \end{enumerate}
     Therefore, as long as $m > 0$ (otherwise $\infty\times\infty$ and $0\times\infty$ are undefined \cite{al2008indeterminate}) then $V_n \to \infty$ due to the last multiplied term (see Equation \ref{eq:infinity series volume}) approaching infinity. Thus, the limit as $n \to \infty$ of $V_n$ is $\infty$. 
 \end{proof}
 
-\begin{figure}[H]
+Upon examining the graph of the IK-Sphere Volume as $n$ increases (see Figure \ref{fig:IK sphere volume to infinity graph}), there is no decrease in volume for $n \leq 5$ as was expected due to the volume of the unit $n$-sphere increasing before $n=5$ (see Figure \ref{fig:unit sphere volume graph}). Hence, another factor is contributing to the constant increase in volume. It may be noticed, however, that the volume increase after $n=5$ becomes much steeper. This suggests that the surrounding unit sphere volumes increasing before $n=5$ are having some effect on the volume of the IK-Sphere. Consequently, we may now realise that the IK-Sphere volume also depends on the volume of its bounding $n$-cube on whose vertices the unit spheres are situated on. 
+
+\begin{figure}[h]
     \centering
     % \begin{tikzpicture}
     %     \begin{axis}[
@@ -216,11 +218,7 @@ As the number of dimensions $n \to \infty$, the volume of an IK-Sphere will tend
     \label{fig:IK sphere volume to infinity graph}
 \end{figure}
 
-Upon examing the graph of the IK-Sphere Volume as $n$ increases (see Figure \ref{fig:IK sphere volume to infinity graph}), there is no decrease in volume for $n \leq 5$ as was expected due to the volume of the unit $n$-sphere increasing before $n=5$ (see Figure \ref{fig:unit sphere volume graph}). Hence, another factor is contributing to the constant increase in volume. It may be noticed, however, that the volume increase after $n=5$ becomes much steeper. This suggests that the surrounding unit sphere volumes increasing before $n=5$ are having some effect on the volume of the IK-Sphere. Consequently, we may now realise that the IK-Sphere volume also depends on the volume of its bounding $n$-cube on whose vertices the unit spheres are situated on. 
-
-The volume of an $n$-cube with side length 2 units is given by $V_n = 2^n$.
-
-We may graph the volumes of the IK-Sphere, unit $n$-sphere and bounding $n$-cube to visualise how the IK-Sphere expands to fill the space between its surrounding $n$-spheres (see Figure \ref{fig:All volumes comparison}). Again, the dotted lines indicate integer dimensions because fractional dimensions are undefined. 
+Consequently, we may graph the volumes of the IK-Sphere, unit $n$-sphere and bounding $n$-cube to visualise how the IK-Sphere expands to fill the space between its surrounding $n$-spheres (see Figure \ref{fig:All volumes comparison}). The volume of the bounding $n$-cube with side length 2 units is given by $V_n = 2^n$ and again, the dotted lines indicate integer dimensions because fractional dimensions are undefined. 
 \begin{figure}[H]
     \centering
     % \begin{tikzpicture}

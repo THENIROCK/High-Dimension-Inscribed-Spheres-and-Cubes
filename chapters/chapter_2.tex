@@ -13,14 +13,13 @@ The radius $r$ of the IK-Sphere can be solved for algebraically and generalised 
     Assuming the original two-dimensional Pythagorean Theorem is proven, we may use mathematical induction to prove the lemma.
     
     \noindent 
-    Base case $\left(n=3\right)$
+    Base case $\left(n=2\right)$
     \begin{equation*}
         \begin{split}
-            c^2&=1^2+1^2+1^2\\
-            c&=\sqrt{3}
+            c^2&=a_1^2+a_2^2\\
         \end{split}
     \end{equation*}
-    So, the lemma holds for $n=3$.
+    which is analogous to $c^2=a^2+b^2$. So, the lemma holds for $n=3$.
     
     \noindent Inductive hypothesis: Suppose the theorem holds for all values of $n$ up to some $k$, $k \geq 3$.
     \begin{equation*}
@@ -35,14 +34,27 @@ The radius $r$ of the IK-Sphere can be solved for algebraically and generalised 
         c_{k+1}^2=\sum_{i}^{k+1}a^2_{i}
         \end{split}
     \end{equation*}
-    Then our left side is
-    \begin{equation*}
-        \begin{split}
-        \sum_{i}^{k}a_i^2+a_{i+1}^2=\sum_{i}^{k+1}a^2_{i}
-        \end{split}
-    \end{equation*}
+    By the regular Pythagorean Theorem,
+    \begin{align*}
+        c^2=a^2+b^2,
+    \end{align*}
+    the $k$-dimensional length $c_k$ and a new line of length $a_{i+1}$ perpendicular to it create the $k+1$ dimensional cube (see three-dimensional analogy in Figure \ref{fig:induction}).
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{images/induction.png}
+        \caption{Two to three-dimensional depiction of inductive step.}
+        \label{fig:induction}
+    \end{figure}
+    \noindent
+    Thus, the left hand side can be rewritten as
+    \begin{align*}
+        c_{k+1}^2&=c_k^2+a_{i+1}^2\\
+        &=\sum_{i}^{k}a_i^2+a_{i+1}^2\\
+        &=\sum_{i}^{k+1}a^2_{i}
+    \end{align*}
     which is our right side. So, the theorem holds for $n=k+1$. 
-    By the principle of mathematical induction, the theorem holds for all $n \in \mathbb{N}$.
+    By the principle of mathematical induction, the theorem holds for all $n \geq 3,$ $n \in \mathbb{N}$.
 \end{proof}
 Let us use a diagram for a 2D IK-Sphere to generalise the IK-Sphere radius $r_n$ to $n$-dimensions. Using the Extended Pythagorean Theorem for an $n$-cube we can determine the length of a diagonal (see line $\overline{\rm AB}$ in Figure \ref{fig:2d diagonal}) of a quadrant of our 2-cube that includes a unit $n$-sphere radius and the radius of the IK-Sphere we wish to obtain. 
 \begin{figure}[h]
@@ -172,7 +184,7 @@ where $a, b, c, d, k$ are constants and $(x, y, z, w)$ is a point on $\Pi$.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/vector equation of plane.png}
-        \caption{A plane containing a point and vector, and a normal vector to $\Pi$.}
+        \caption{A plane $\Pi$ containing a point and vector, and a normal vector to $\Pi$.}
         \label{fig:plane equation proof setup}
     \end{figure}
     
@@ -217,12 +229,10 @@ The coordinate(s) of intersection between the plane and IK-sphere where $0\leq x
 \end{align*}
 we can solve for $x, y$, and $z$ because for any arbitrary value $\alpha$,
 \begin{align*}
-    \forall  \alpha \in \mathbb{R}, (\alpha-1)^2 \geq 0 \implies \forall \alpha \ni \alpha \geq 0, \left( (x-1), (y-1), (z-1)\right) = 0.\\
+    \forall  \alpha \in \mathbb{R}, (\alpha-1)^2 \geq 0 \implies \forall \alpha \ni \alpha &\geq 0, \left( (x-1), (y-1), (z-1)\right) = 0.\\
+    \therefore (x, y, z)&=(1, 1, 1).
 \end{align*}
-\begin{align*}
-    \therefore (x, y, z)=(1, 1, 1). 
-\end{align*}
-Thus, the intersection between the IK-sphere and its bounding 4-cube's $w=0$ face occurs at $(1,1,1,0)$ and there is only one solution. This is directly in the center of the face as expected. In response to the research question, \researchquestion it has been verified that an IK-Sphere does share a coordinate with its bounding $n$-cube at $n=4$ dimensions. Additionally, we provided algebraic reasoning for the radius of an IK-Sphere tending to infinity by proving that the limit of the expression for the radius of an IK-Sphere in terms of $n$ approaches infinity as $n \to \infty$. However, a more visual high dimensional intuition can be provided through geometric reasoning as detailed in the following chapter.
+Thus, the intersection between the IK-sphere and its bounding 4-cube's $w=0$ face occurs at $(1,1,1,0)$ and there is only one solution. This is directly in the center of the face as expected. In response to the research question, it has been verified that an IK-Sphere does share a coordinate with its bounding $n$-cube at $n=4$ dimensions. Additionally, we provided algebraic reasoning for the radius of an IK-Sphere tending to infinity by proving that the limit of the expression for the radius of an IK-Sphere in terms of $n$ approaches infinity as $n \to \infty$. However, a more visual high dimensional intuition can be provided through geometric reasoning as detailed in the following chapter.
 
 % four different equations:  
 % \begin{equation*}

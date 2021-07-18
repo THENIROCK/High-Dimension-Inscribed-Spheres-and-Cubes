@@ -61,9 +61,18 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \renewcommand\qedsymbol{$\blacksquare$}
+%https://tex.stackexchange.com/questions/223948/suggestions-for-nested-proofs
+\newenvironment{subproof}[1][\proofname]{%
+    \renewcommand{\qedsymbol}{$\square$}%
+    \begin{proof}[#1]%
+}{%
+    \end{proof}%
+}
+  
+
 
 \newcommand{\researchquestion}{\begin{quote}\begin{center}
-        \emph{RQ: Why  does  the  radius  of  an  IK-Sphere  tend  to  infinity  as  dimensionality increases and does it truly intersect with its bounding box in $n \geq 4$ dimensions?}\end{center}
+        \emph{\textbf{RQ: Why  does  the  radius  of  an  IK-Sphere  tend  to  infinity  as  dimensionality increases and does it truly intersect with its bounding box in $n \geq 4$ dimensions?}}\end{center}
 \end{quote}}
 
 \newenvironment{amatrix}[1]{%
@@ -80,7 +89,7 @@
     \include{titlepage}
     \include{dedication}
     \include{abstract} % UPDATE RESEARCH QUESTION IN THE ABSTRACT
-    \singlespacing
+    \setstretch{0.5}
     \include{contents}
     \doublespacing
     \include{nomenclature}

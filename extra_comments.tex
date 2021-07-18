@@ -1,0 +1,148 @@
+\section{GABE1 - DONE}
+The phrase ``$\mathbb{R}^{3}$ embedded in $\mathbb{R}^{4}$" isn't technically accurate. You literally cannot embed $\mathbb{R}^{3} = \left\{ x \Hat{i} + y \Hat{j} + z \Hat{k} \mid x,y,z\in\mathbb{R} \right\}$ in $\mathbb{R}^{4} = \left\{ x \Hat{e_1} + y \Hat{e_2} + z \Hat{e_3} + w \Hat{e_4} \mid x,y,z,w\in\mathbb{R} \right\}$. I don't think that the examiners will be that particular about language but ``allowing $x$, $y$ and $z$ to vary through $\mathbb{R}$ while keeping $w$ fixed" is an alternative.
+
+\section{GABE2 - DONE}
+Later in this proof, you say that $\Vec{v}$ is in the plane $\Pi$ if $\Vec{v} \cdot \Vec{n} = 0$. This is, in fact, a defining condition for a plane, but you take it as something assumed. You should provide this information in Definition \ref{def:n-plane}.
+
+\section{GABE3 - DONE}
+In reference to ``[...] we can deduce that a face of the 4-cube will lie on one of the $x,y,z,w$ axes.", I think this is a poor way to phrase this. More accurate is to say that `a face of the 4-cube will have either $x$, $y$, $z$ or $w$ constant'. You can follow this with `Let us take $w$ constant, and choose the face which intersects with $(0,0,0,0)$, giving $w=0$.' which immediately leads to your ``[...] of the form (x,y,z,0) [...]" statement.
+
+\section{GABE4}
+Insufficient explanation of where equation \ref{eq:cube face} ($w = 0$) comes from. I'd like to see some working in the form:
+\begin{align*}
+    ax+by+cz+dw &= k \\
+    \text{more steps of working go here} \\
+    \therefore w &= 0
+\end{align*}
+At present, you kinda just have `we've got $w=0$ from $(x,y,z,0)$ and hence, that's the whole equation' without any regard for why $a=b=c=1$ and $k=0$.
+\par You can obtain these values by substituting the points $(2,0,0,0)$, $(0,2,0,0)$, $(0,0,2,0)$ and $(2,2,0,0)$ (or whatever other 4 points lie in this plane) and solving linear equations. Should take under 30 words.
+
+\section{GABE5, GABE6}
+This isn't the defining equation of a 4-sphere. The defining equation is rather
+\begin{align*}
+    (x-X)^2 + (y-Y)^2 + (z-Z)^2 + (w-W)^2 = 1
+\end{align*}
+where $(X,Y,Z,W)$ is the centre of the 4-sphere in question. You can obtain this from the equation $||\Vec{r} - \Vec{c}|| = 1$ where $\Vec{c}$ is the position vector for the centre of the sphere and $\Vec{r} = \langle X, Y, Z, W \rangle$.
+\par You can use this to introduce the equation for your IK-sphere (eq: \ref{eq:IK 4 sphere centered at 1}, where I've left the comment GABE6) more easily.
+
+\section{GABE6}
+In addition to GABE5, I've got another comment -- why are you supposing that the radius of the IK-sphere is 1? Should it not be $r_4$?
+
+\section{GABE7}
+Agh I simply can't stand the use of $\ni$ for ``such that". Using a colon (:) is far more standard notation, making your statement read ``$\forall \alpha : \alpha \geq 0$" as opposed to the current ``$\forall \alpha \ni \alpha \geq 0$".
+\par If using $\ni$ for ``such that" is standard notation, go for it, but I'm really not sure that it is.
+
+\section{GABE8}
+Reformatting this statement as follows makes it read easier (and avoids using the symbol $0$ for both $0 \in \mathbb{R}$ and $0 = (0,0,0)$):
+\begin{align*}
+    \forall\alpha\in\mathbb{R}, \, (\alpha-1)^2 &\geq 0 \\
+\end{align*}
+And since $(x-1)^2 + (y-1)^2 + (z-1)^2 =0$, the only choice is that
+\begin{align*}
+    &\begin{cases}
+    (x-1)^2 = 0 \\
+    (y-1)^2 = 0 \\
+    (z-1)^2 = 0 \\
+    \end{cases} \\
+    &\begin{cases}
+    x=1\\
+    y=1\\
+    z=1\\
+    \end{cases} \\
+\end{align*}
+(end of reformatting)
+
+\section{GABE9}
+See comment in chapter\textunderscore2.tex.
+
+\section{GABE10}
+The second sentence of this paragraph is grammatically incorrect or confusing to read to the point where I thought it was grammatically incorrect.
+
+\section{GABE11}
+The parenthesised text reading ``(extended factorial function for fractional and negative real values)" isn't totally accurate. `(extended factorial function for all real values except the non-positive integers)' is correct. I've lifted this text from Wikipedia, so rephrase it before making this change.
+\par Also, you should say in the  equation immediately following this that $\left(\frac{3}{2}\right)! = \Gamma\left(\frac{3}{2} + 1 \right)$ to be explicit. It doesn't cost any words, so there's no issues here. Format as:
+\begin{align*}
+    \left(\frac{3}{2}\right)! &= \Gamma \left(\frac{3}{2} + 1 \right) \\
+    &= \frac{3}{4} \sqrt{\pi} \\
+    \text{rest of working as is currently presented}
+\end{align*}
+
+\section{GABE12}
+You've accidentally typed $V_{2}(r)$ when you meant to type $V_{3}(r)$.
+
+\section{GABE14}
+This isn't a series (sum). This is a product. Change this last sentence to ``Letting $m = \frac{n}{2}$ allows for a simpler expansion of the expression, namely:".
+\par You misuse the word ``series" twice in the next paragraph.
+
+\section{GABE15}
+You can make this argument more rigorous by observing the following:
+\begin{align*}
+    \frac{\pi^{m}}{m!} &= \frac{\pi}{1} \times \frac{\pi}{2} \times \cdots \frac{\pi}{m-1} \times \frac{\pi}{m} \\
+    &\leq \frac{\pi}{1} \times \frac{\pi}{1} \times \cdots \frac{\pi}{1} \times \frac{\pi}{m} \\ %Only the last term is unaffected
+    &\to 0
+\end{align*}
+and also,
+\begin{align*}
+    0 \leq \frac{\pi^{m}}{m!}
+\end{align*}
+Thus, by the squeeze theorem,
+\begin{align*}
+    0 \leq &\frac{\pi^{m}}{m!} \leq \frac{\pi}{1} \times \frac{\pi}{1} \times \cdots \frac{\pi}{1} \times \frac{\pi}{m} \\
+    \therefore \lim_{m\to\infty} 0
+        \leq \lim_{m\to\infty} &\frac{\pi^m}{m!}
+        \leq \lim_{m\to\infty} \frac{\pi}{1} \times \frac{\pi}{1} \times \cdots \frac{\pi}{1} \times \frac{\pi}{m} \\
+    0\leq \lim_{m\to\infty} &\frac{\pi^m}{m!} \leq 0 \\
+    \therefore \lim_{m\to\infty} &\frac{\pi^m}{m!} = 0
+\end{align*}
+This reasoning is more rigorous than ``[...] the fractions are being multiplied by increasingly smaller fractions in the series (equation I can't be bothered to type here). As a result, as $m$ increases, this series will approach $0$.", which I feel is a bit hand-wavey.
+
+\section{GABE16}
+The vertical axis should read $V_{n} (1)$.
+
+\section{GABE17}
+In reference to ``Note the dotted lines in integer intervals of dimension $n$ indicate that the fractional dimensions are undefined.", what does this mean? Is this just your graphing package dying or is something more important going on?
+\par Re-read this. You explain this better at Figure \ref{fig:All volumes comparison} than you do here. Say the same thing as what you said in Figure \ref{fig:All volumes comparison}.
+\par Also, I \textbf{need} this graphing package.
+
+\section{GABE18}
+In reference to ``Due to the radius of the IK-Sphere expanding to `kiss' the unit spheres centered on the vertices of the bounding $n$-cube, if the volume of the unit $n$-spheres converges to zero as dimensionality increases, that would explain why the radius reaches out to infinity to `kiss' them -- it never can.", a short reminder that the distance between the centre of the IK-Sphere and any corner of the $n$-cube gets arbitrarily large would be appreciated here. I immediately visualised a 3D case and thought ``wtf no, the sphere can get there" before slapping myself for being stupid.
+
+\section{GABE19}
+Remove the parentheses around ``$(r,n)\to\infty$" to give instead `$r,n\to\infty$'. I don't believe that the parentheses are standard notation and it appears (to me) instead like the ordered pair $(r,n)$ as opposed to indicating that you're referring to both $r$ and $n$ going to $\infty$.
+
+\section{GABE20}
+You can avoid the limit as two things go to infinity if you first provide that $r_n = \sqrt{n} -1$. It's also more technically accurate to do this first and not speak of a limit as both things go to infinity, since you're only looking at how dimensionality increases. The radius increasing is a direct consequence of the dimensionality increasing; they're not independent, so you shouldn't notate it as if they were.
+
+\section{GABE21}
+Why are you making the input of $V_n$ be $n$? You should still be taking the limit $\lim_{n\to\infty} V_n \left(r_n \right)$, not whatever $\lim_{n\to\infty} V_n \left(n \right)$ would be.
+
+\section{GABE22}
+Misuse of the word ``series".
+
+\section{GABE23}
+The following is an argument that implicitly uses the Limit Order Theorem. You don't need to reference that you're using the Limit Order Theorem (since it's basically just common sense anyway), but if you want to, go ahead.
+
+\section{GABE24}
+$\infty \times \infty = \infty$ is perfectly well-defined? Why are you saying that it's not?
+
+\section{GABE25}
+You need to also show that the smaller terms, such as $\frac{\pi (\sqrt{2m} - 1)^2}{m}$ do not approach $0$ (to avoid the undefined expression $0\times \infty$). I've already given you a proof of that on a phone picture somewhere. It approaches $2\pi$, if I remember correctly.
+
+\section{GABE26}
+Should be writing $V_{n} (r_{n} )$ instead of $V_n$.
+
+\section{GABE27}
+You've mis-labeled $V_{n} (r_n)$ as $V_{n} (n)$ again in this graph. Please check your entire document to make further changes for it because I'm not going to leave a comment about it again (because I'm lazy).
+
+\section{GABE28}
+I'm not sure if this is supposed to sat $r_n$. Please check.
+
+\section{GABE29}
+``[...] the space, [...], between unit spheres becomes infinitely large [...]" should read `[...] the diagonal space, [...], between unit spheres becomes infinitely large [...]' or something to this effect. The unit spheres do touch each other and you could say that in that sense, the space doesn't become infinitely large (because they're touching, so in that sense, the space between them is 0). Resolve that ambiguity with a word or two.
+
+\section{GABE30}
+``[...] We found (see Chapter 2: Section \ref{section:verify intersection}) that the IK-Sphere in 4 dimensions intersected at the single coordinate $(1, 1, 1, 0) [...]$ should read `[...] We found (see Chapter 2: Section \ref{section:verify intersection}) that the IK-Sphere in 4 dimensions intersected at the coordinate $(1, 1, 1, 0)$ [...]' (I removed the word ``single"). This clarifies that $(1,1,1,0)$ is not the ONLY intersection, which ``single" may imply to a half-asleep examiner.
+
+\section{GABE31}
+``[...] the amount of space between points increases somewhat exponentially [...]" Use a different adjective other than ``exponentially". ``exponentially", of course, has a very strict definition in math and you didn't show that the space between points increases in a way that satisfies the conditions necessary to be called ``exponentially".
+

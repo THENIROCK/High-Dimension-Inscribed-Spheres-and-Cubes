@@ -1,3 +1,8 @@
+%See extra_comments.tex for the comments that I've left. I'll number them in this main.tex file and I'll typeset them nicely in extra_comments.tex.
+%I will number my comments by GABE1, GABE2, ... so that you can easily search for them.
+%The final comment I have left is GABE[finalNumberWillUpdateWhenI'mDone]. Check comments GABE1 -> GABE[final...Done] for what I've left.
+%I can't be bothered to typeset the comments I've already sent by email. You can put them into LaTeX yourself if you'd like to visualise them.
+
 
 %preamble
 \documentclass[a4paper, 12pt]{report}
@@ -68,11 +73,12 @@
 }{%
     \end{proof}%
 }
+\renewcommand{\listfigurename}{List of Figures\footnote{All illustrations and graphs in this essay were made by the author}}
   
 
 
 \newcommand{\researchquestion}{\begin{quote}\begin{center}
-        \emph{\textbf{RQ: Why  does  the  radius  of  an  IK-Sphere  tend  to  infinity  as  dimensionality increases and does it truly intersect with its bounding box in $n \geq 4$ dimensions?}}\end{center}
+        \textbf{RQ: Why  does  the  radius  of  an  IK-Sphere  tend  to  infinity  as  dimensionality increases and does it truly intersect with its bounding box in $n \geq 4$ dimensions?}\end{center}
 \end{quote}}
 
 \newenvironment{amatrix}[1]{%
@@ -86,6 +92,7 @@
 \tikzexternalize
 
 \begin{document}
+    \include{extra_comments} % REMOVE WHEN DONE
     \include{titlepage}
     \include{dedication}
     \include{abstract} % UPDATE RESEARCH QUESTION IN THE ABSTRACT
@@ -97,12 +104,12 @@
     \chapter{Introduction}
     \input{chapters/chapter_1}
     
-    \chapter{Algebraic Reasoning}
+    \chapter{Body: Algebraic Reasoning}
     %\epigraph{Research Question}{\begin{flushleft}\textit{Why does the radius of an IK-Sphere tend to infinity as dimensionality increases?}\end{flushleft}}
     \epigraph{\textit{Why  does  the  radius  of  an  IK-Sphere  tend  to  infinity  as  dimensionality increases and does it truly intersect with its bounding box in $n \geq 4$ dimensions?}}{Research Question}
     \input{chapters/chapter_2}
     
-    \chapter{Geometric Reasoning}
+    \chapter{Body: Geometric Reasoning}
     \epigraph{\textit{Why  does  the  radius  of  an  IK-Sphere  tend  to  infinity  as  dimensionality increases and does it truly intersect with its bounding box in $n \geq 4$ dimensions?}}{Research Question}
     \input{chapters/chapter_3}
     
@@ -113,6 +120,6 @@
     %\printbibliography[type=inbook, title={Books}]
     
     \appendix
-    \chapter{Appendix}
+    \chapter{Appendix A}
     \input{chapters/appendix}
 \end{document}
